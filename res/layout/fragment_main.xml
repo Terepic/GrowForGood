@@ -13,4 +13,27 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/send_button"
+    	android:onClick="sendMessage" />
+
+    <EditText
+        android:id="@+id/ask_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_toLeftOf="@+id/button1"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/ask_message" >
+
+        <requestFocus />
+    </EditText>
+
 </RelativeLayout>

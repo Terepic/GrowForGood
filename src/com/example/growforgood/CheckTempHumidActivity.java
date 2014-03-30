@@ -1,46 +1,34 @@
 package com.example.growforgood;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.os.Build;
 
-public class MainActivity extends ActionBarActivity {
-
-	private static final String PLANT_NAME = "com.example.growforgood.MESSAGE";
+public class CheckTempHumidActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_check_temp_humid);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		
-		
-	}
-	
-	public void sendMessage(View view){
-		Intent intent = new Intent(this, CheckTempHumidActivity.class);
-		EditText editText = (EditText) findViewById(R.id.ask_message);
-		String message = editText.getText().toString();
-		intent.putExtra(PLANT_NAME, message);
-		startActivity(intent);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.check_temp_humid, menu);
 		return true;
 	}
 
@@ -67,8 +55,8 @@ public class MainActivity extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
+			View rootView = inflater.inflate(
+					R.layout.fragment_check_temp_humid, container, false);
 			return rootView;
 		}
 	}
