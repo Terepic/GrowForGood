@@ -1,27 +1,37 @@
 package com.example.growforgood;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 
 public class CheckTempHumidActivity extends ActionBarActivity {
-
+	private int temp, humid;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		
+		Intent intent = getIntent();
+		String plant = intent.getStringExtra(MainActivity.PLANT_NAME);
+		//test stuff
+
+		
+		
+		
+		
+		
+		
+		
 		setContentView(R.layout.activity_check_temp_humid);
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+
 	}
 
 	@Override

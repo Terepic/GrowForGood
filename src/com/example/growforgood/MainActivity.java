@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-	private static final String PLANT_NAME = "com.example.growforgood.MESSAGE";
+	public static final String PLANT_NAME = "com.example.growforgood.MESSAGE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
