@@ -1,5 +1,8 @@
 package com.example.growforgood;
 
+import java.io.IOException;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,21 +13,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 public class CheckTempHumidActivity extends ActionBarActivity {
 	private int temp, humid;
-	
+	private String senderid="sincere-bongo-535";
+	private String regid;
+	private GoogleCloudMessaging gcm;
+	private Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		
+
 		Intent intent = getIntent();
 		String plant = intent.getStringExtra(MainActivity.PLANT_NAME);
 		//test stuff
-
+		context=getApplicationContext();
+		gcm=GoogleCloudMessaging.getInstance(context);
+		try {
+			regid=gcm.register(senderid);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		
+		sendRegistrationIdToBackend();
 		
 		
 		
@@ -70,5 +83,16 @@ public class CheckTempHumidActivity extends ActionBarActivity {
 			return rootView;
 		}
 	}
-
+	/**
+	 * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP
+	 * or CCS to send messages to your app. Not needed for this demo since the
+	 * device sends upstream messages to a server that echoes back the message
+	 * using the 'from' address in the message.
+	 */
+	private void sendRegistrationIdToBackend() {
+	    // Your implementation here.
+		
+	}
+	
+	
 }
